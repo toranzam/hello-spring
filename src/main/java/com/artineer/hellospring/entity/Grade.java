@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 @Builder
-public class GradeEntity {
+public class Grade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,11 +1,10 @@
 package com.artineer.hellospring.repository;
 
-import com.artineer.hellospring.entity.GradeEntity;
+import com.artineer.hellospring.entity.Grade;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 
-public interface GradeRepository extends JpaRepository<GradeEntity, Long> {
+public interface GradeRepository extends JpaRepository<Grade, Long> {
 
 
 }

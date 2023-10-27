@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="<http://www.thymeleaf.org>"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -14,24 +14,48 @@
 <div class="container text-center mt-5">
     <h2 class="text-light">학점 기록표</h2>
 </div>
+
 <div class="d-flex justify-content-center">
-    <div class="container m-5 ">
-        <table class="table table-dark table-striped">
+    <div class="container m-5  " >
+        <div class="d-flex justify-content-end">
+            <a href="/grades/delete" class="text-light btn btn-secondary me-3" style="text-decoration: none">초기화</a>
+            <a href="/grades/new" class="text-light btn btn-secondary" style="text-decoration: none">새로만들기</a>
+        </div>
+        <table class="table table-dark table-striped mt-3">
             <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">학생이름</th>
                 <th scope="col">과목</th>
                 <th scope="col">학점</th>
+                <th scope="col"></th>
+
             </tr>
             </thead>
             <tbody>
-            <tr th:each="grade : ${gradeDtoList}">
-                <th scope="row">1</th>
+            <tr th:each="grade, gradeStat :  ${gradeList}">
+                <th th:text="${gradeStat.count}" scope="row">1</th>
                 <td th:text="${grade.name}">김민성</td>
                 <td th:text="${grade.subject}">컴퓨터 조직</td>
                 <td th:text="${grade.credit}">A+</td>
+                <td>
+                    <div class="d-flex justify-content-end">
+                        <a th:href="@{/grades/delete/{id}(id=${grade.getId()})}" class="btn btn-secondary">삭제</a>
+                    </div>
+                </td>
             </tr>
+            <!--        <tr>-->
+            <!--            <th scope="row">2</th>-->
+            <!--            <td>김법원</td>-->
+            <!--            <td>컴퓨터 구조</td>-->
+            <!--            <td>A0</td>-->
+            <!--        </tr>-->
+            <!--        <tr>-->
+            <!--            <th scope="row">3</th>-->
+            <!--            <td >케로로</td>-->
+            <!--            <td>이산수학</td>-->
+            <!--            <td>C+</td>-->
+            <!--        </tr>-->
             </tbody>
         </table>
     </div>
