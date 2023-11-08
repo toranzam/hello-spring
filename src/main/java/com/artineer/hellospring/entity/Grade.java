@@ -29,6 +29,5 @@ public class Grade {
     private String credit;
 
 
-
 }
 

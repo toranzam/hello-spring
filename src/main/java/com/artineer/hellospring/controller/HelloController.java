@@ -26,8 +26,8 @@ public class HelloController {
 
     private final List<Grade> gradeDtoList = Arrays.asList(
             new Grade(0L, "김민성", "컴퓨터 조직", "A+"),
-            new Grade(1L,"김법원", "컴퓨터 구조", "A0"),
-            new Grade(2L,"케로로", "이산수학", "C+")
+            new Grade(1L, "김법원", "컴퓨터 구조", "A0"),
+            new Grade(2L, "케로로", "이산수학", "C+")
     );
 
     @GetMapping("/grades")
@@ -49,10 +49,12 @@ public class HelloController {
     }
 
     @PostMapping("/grades/new")
-    public String createNewGrade(@Validated GradeDto gradeDto, BindingResult result){
+    public String createNewGrade(@Validated GradeDto gradeDto, BindingResult result) {
         log.info("출력할 데이터={}", gradeDto);
 
-        if(result.hasErrors()){
+        log.info("오류가 있나요?={}", result);
+
+        if (result.hasErrors()) {
             return "newGrade";
         }
 
@@ -67,9 +69,6 @@ public class HelloController {
 
         return "redirect:/grades";
     }
-
-
-
 
 
 }
